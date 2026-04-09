@@ -1,20 +1,18 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# InterprePrep AI - Deployment Guide
 
-# Run and deploy your AI Studio app
+This application is built with React and Vite. To ensure it works perfectly on Vercel, follow these steps:
 
-This contains everything you need to run your app locally.
+## 1. Environment Variables
+You must set the `GEMINI_API_KEY` in your Vercel project settings:
+1. Go to your project on the Vercel Dashboard.
+2. Navigate to **Settings** > **Environment Variables**.
+3. Add a new variable:
+   - **Key**: `GEMINI_API_KEY`
+   - **Value**: Your Google Gemini API Key.
+4. Redeploy your application.
 
-View your app in AI Studio: https://ai.studio/apps/5dfa7318-3842-4113-bee9-0a50c8c047cd
+## 2. SPA Routing
+A `vercel.json` file has been included to handle SPA routing. This ensures that refreshing the page or navigating directly to sub-routes doesn't result in a 404 error.
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 3. Professional Interface
+The interface has been refined to be professional and distraction-free, optimized for the high-focus environment of conference interpreting.

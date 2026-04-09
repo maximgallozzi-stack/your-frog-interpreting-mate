@@ -14,15 +14,10 @@ export default function TermResearch() {
   const [sourceLang, setSourceLang] = useState("Italian");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<TermResult | null>(null);
-  const [showGiantFrog, setShowGiantFrog] = useState(false);
 
   const handleSearch = async () => {
     if (!term.trim()) return;
     
-    // Trigger giant frog animation
-    setShowGiantFrog(true);
-    setTimeout(() => setShowGiantFrog(false), 1500);
-
     setLoading(true);
     try {
       const data = await geminiService.researchTerm(term, sourceLang);
@@ -36,27 +31,6 @@ export default function TermResearch() {
 
   return (
     <div className="space-y-6 relative">
-      {/* Giant Frog Animation */}
-      <AnimatePresence>
-        {showGiantFrog && (
-          <motion.div
-            initial={{ scale: 0, y: 100, opacity: 0 }}
-            animate={{ 
-              scale: [0, 1.2, 1], 
-              y: [100, -50, 0], 
-              opacity: 1,
-              rotate: [0, -10, 10, 0]
-            }}
-            exit={{ scale: 0, opacity: 0, transition: { duration: 0.3 } }}
-            className="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none"
-          >
-            <div className="text-[250px] md:text-[500px] drop-shadow-2xl filter blur-[1px] md:blur-0">
-              🐸
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1 flex gap-2">
           <div className="relative flex-1">
@@ -168,8 +142,8 @@ export default function TermResearch() {
             ))}
           </motion.div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 text-muted-foreground border-2 border-dashed rounded-xl">
-            <div className="text-4xl mb-4 opacity-40">🐸</div>
+          <div className="flex flex-col items-center justify-center py-20 text-muted-foreground border-2 border-dashed rounded-xl bg-muted/10">
+            <Search className="h-12 w-12 mb-4 opacity-20" />
             <p>Inizia una ricerca terminologica per visualizzare tutti i significati in IT, EN, FR</p>
           </div>
         )}

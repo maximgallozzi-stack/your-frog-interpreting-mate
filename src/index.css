@@ -4,15 +4,16 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  --color-primary: #4ade80; /* A nice frog green */
-  --color-primary-foreground: #064e3b;
+  --color-primary: oklch(0.627 0.194 149.214); /* A professional emerald green */
+  --color-primary-foreground: oklch(0.985 0 0);
 }
 
 body {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://picsum.photos/seed/frog/1920/1080');
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(at 0% 0%, oklch(0.627 0.194 149.214 / 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, oklch(0.627 0.194 149.214 / 0.03) 0px, transparent 50%);
   background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
 }
 
 .dark body {

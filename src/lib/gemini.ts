@@ -1,7 +1,16 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { TermResult, VocabItem, DomainResult } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+const getApiKey = () => {
+  const key = process.env.GEMINI_API_KEY;
+  if (!key || key === "MY_GEMINI_API_KEY" || key === "") {
+    console.error("GEMINI_API_KEY is missing. Please set it in your environment variables.");
+    return "";
+  }
+  return key;
+};
+
+const ai = new GoogleGenAI({ apiKey: getApiKey() });
 
 export const geminiService = {
   async researchTerm(term: string, sourceLang: string): Promise<TermResult> {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FileText, Target, Lightbulb, Link as LinkIcon, BrainCircuit } from "lucide-react";
+import { FileText, Target, Lightbulb, Link as LinkIcon, BrainCircuit, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -125,8 +125,8 @@ export default function DomainIdentifier() {
             </Card>
           </motion.div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 text-muted-foreground border-2 border-dashed rounded-xl">
-            <div className="text-4xl mb-4 opacity-40">🐸</div>
+          <div className="flex flex-col items-center justify-center py-20 text-muted-foreground border-2 border-dashed rounded-xl bg-muted/10">
+            <Target className="h-12 w-12 mb-4 opacity-20" />
             <p>Analizza un testo per identificare domini e concetti chiave</p>
           </div>
         )}

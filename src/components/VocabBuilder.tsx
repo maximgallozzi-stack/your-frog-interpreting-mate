@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Plus, Download, Trash2, ListChecks, Globe2 } from "lucide-react";
+import { Plus, Download, Trash2, ListChecks, Globe2, BookOpen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -124,8 +124,8 @@ export default function VocabBuilder() {
             </div>
           </motion.div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 text-muted-foreground border-2 border-dashed rounded-xl">
-            <div className="text-4xl mb-4 opacity-40">🐸</div>
+          <div className="flex flex-col items-center justify-center py-20 text-muted-foreground border-2 border-dashed rounded-xl bg-muted/10">
+            <BookOpen className="h-12 w-12 mb-4 opacity-20" />
             <p>Genera un glossario tecnico trilingue basato su un dominio specifico</p>
           </div>
         )}
